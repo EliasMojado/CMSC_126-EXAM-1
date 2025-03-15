@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reddit</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+      <img src="src/reddit_logo.png" alt="Reddit Mock Logo" class="logo-img" />
+  </header>
+
+  <div class="search-bar">
+    <!-- 5 boxes -->
+    <div class="tabs">
+      <div class="tab red-text">what's hot</div>
+      <div class="tab">new</div>
+      <div class="tab">controversial</div>
+      <div class="tab">top</div>
+      <div class="tab">saved</div>
+    </div>
+
+    <input type="text" class="search-input" />
+    <button class="search-button">
+      <i class="fas fa-search"></i>
+    </button>
+
+    <div class="notifications">
+      <div class="upper-box">
+        <span class="blue-text">7hundredand77</span>, you're back! 
+        <span class="blue-text">preferences</span> | 
+        <span class="blue-text">log out?</span> :(
+      </div>
+
+      <div class="notif-box">
+        <i class="fas fa-envelope"></i>
+        <strong>1</strong> New Msg
+      </div>
+      <div class="notif-box"><strong>53,11</strong> Link</div>
+      <div class="notif-box"><strong>4887</strong> Comment</div>
+    </div>
+  </div>  
+
+  <main class="container">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar-left">
+      <ul>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Front Page</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Pics</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Science</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Technology</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Ask Reddit</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> Funny</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> WTF</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> IAMA</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> WORLD NEWS</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> TODAYILEARNED</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> WORLDNEWS</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> WEBDESIGN</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> ATHEIST</a></li>
+        <li><a href="#"><img class="icon" src="src/icon.jpg" alt="icon" /> FFFUUUUUUUU</a></li>
+      </ul>
+
+      <div class="sidebar-boxes">
+        <span class="blue-text">(MORE)</span>
+        
+        <div class="blue-box">
+          <span class="blue-text">Submit a Link</span> <br>
+          to any interesting news article, blog entry, video, picture ...
+        </div>
+
+        <div class="blue-box">
+          <span class="blue-text">Create Community</span> <br>
+          ...for your LARPing community. ... because nothing in life is free (except reddits!) here on the side
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content (Posts) -->
+    <section class="main-content">
+      <!-- Post #1 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #1 -->
+          <input type="checkbox" id="arrow-up-post1" class="arrow-toggle" hidden />
+          <label for="arrow-up-post1" class="arrow arrow-up"></label>
+          
+          <!-- Score -->
+          <div class="score">215</div>
+          
+          <!-- Down arrow toggle #1 -->
+          <input type="checkbox" id="arrow-down-post1" class="arrow-toggle" hidden />
+          <label for="arrow-down-post1" class="arrow arrow-down"></label>
+        </div>
+        
+        <div class="post-image">
+          <img src="src/soccer.jpg" alt="Example Image" />
+        </div>
+        
+        <div class="post-details">
+          <a href="#">What do you call 60 guys watching the Super Bowl at home?</a>
+          <p>submitted 19 hours ago by <span class="username">krispykracker</span></p>
+          <p>623 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- Post #2 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #2 -->
+          <input type="checkbox" id="arrow-up-post2" class="arrow-toggle" hidden />
+          <label for="arrow-up-post2" class="arrow arrow-up"></label>
+
+          <div class="score">232</div>
+
+          <!-- Down arrow toggle #2 -->
+          <input type="checkbox" id="arrow-down-post2" class="arrow-toggle" hidden />
+          <label for="arrow-down-post2" class="arrow arrow-down"></label>
+        </div>
+        <div class="post-details">
+          <a href="#">I AM the guy who created this design AMA</a>
+          <p>submitted 1 day ago by <span class="username">7hundredand77</span></p>
+          <p>200 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- Post #3 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #3 -->
+          <input type="checkbox" id="arrow-up-post3" class="arrow-toggle" hidden />
+          <label for="arrow-up-post3" class="arrow arrow-up"></label>
+
+          <div class="score">215</div>
+
+          <!-- Down arrow toggle #3 -->
+          <input type="checkbox" id="arrow-down-post3" class="arrow-toggle" hidden />
+          <label for="arrow-down-post3" class="arrow arrow-down"></label>
+        </div>
+        <div class="post-details">
+          <a href="#">Thanks, Sally, That blowjob was... [SFW?]</a>
+          <p>submitted 11 hours ago by <span class="username">Maiko</span> to <span class="subreddit">gaming</span></p>
+          <p>321 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- Post #4 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #4 -->
+          <input type="checkbox" id="arrow-up-post4" class="arrow-toggle" hidden />
+          <label for="arrow-up-post4" class="arrow arrow-up"></label>
+
+          <div class="score">215</div>
+
+          <!-- Down arrow toggle #4 -->
+          <input type="checkbox" id="arrow-down-post4" class="arrow-toggle" hidden />
+          <label for="arrow-down-post4" class="arrow arrow-down"></label>
+        </div>
+        <div class="post-details">
+          <a href="#">Thanks, Sally, That blowjob was... [SFW?]</a>
+          <p>submitted 11 hours ago by <span class="username">Maiko</span> to <span class="subreddit">gaming</span></p>
+          <p>321 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- Post #5 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #5 -->
+          <input type="checkbox" id="arrow-up-post5" class="arrow-toggle" hidden />
+          <label for="arrow-up-post5" class="arrow arrow-up"></label>
+          
+          <!-- Example score for demonstration. If you want a numeric score, 
+               just use a <div> or <span> with that number: -->
+          <div class="score">666</div>
+
+          <!-- Down arrow toggle #5 -->
+          <input type="checkbox" id="arrow-down-post5" class="arrow-toggle" hidden />
+          <label for="arrow-down-post5" class="arrow arrow-down"></label>
+        </div>
+        <div class="post-image">
+          <img src="src/duterts.jpg" alt="Example Image" />
+        </div>
+        <div class="post-details">
+          <a href="#">Duterte di pinagbigyan ng ICC</a>
+          <p>submitted 12 hours ago by <span class="username">Kenz</span> to <span class="subreddit">books</span></p>
+          <p>6,666 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- Post #6 -->
+      <div class="post">
+        <div class="post-index"></div>
+        <div class="vote-container">
+          <!-- Up arrow toggle #6 -->
+          <input type="checkbox" id="arrow-up-post6" class="arrow-toggle" hidden />
+          <label for="arrow-up-post6" class="arrow arrow-up"></label>
+
+          <div class="score">103</div>
+
+          <!-- Down arrow toggle #6 -->
+          <input type="checkbox" id="arrow-down-post6" class="arrow-toggle" hidden />
+          <label for="arrow-down-post6" class="arrow arrow-down"></label>
+        </div>
+        <div class="post-details">
+          <a href="#">As a six-year-old, this was the best book ever</a>
+          <p>submitted 12 hours ago by <span class="username">Maiko</span> to <span class="subreddit">books</span></p>
+          <p>6,232 comments | share | save | hide | report</p>
+        </div>
+      </div>
+
+      <!-- newer and older buttons -->
+      <div class="navigation-buttons">
+        <button class="older-button">
+            <i class="fas fa-arrow-left"></i> Newer
+        </button>
+        <button class="newer-button">
+            Older <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Right Sidebar (Thread / Comments Preview) -->
+    <aside class="sidebar-right">
+      <div class="thread-header">
+        <h1 class="blue-text">I AM the guy who created this design AMA</h1>
+        <p class="small-text">http://img3.imageshack.us/img3/9807/goodlookingnew23.jpg</p>
+        
+        <div class="info">
+          <div class="stats">
+            <p><strong><span class="big-number">232</span> points</strong> (71% like it)</p>
+            <div class="votes">
+              <p class="up-votes">390 up votes</p>
+              <p class="down-votes">158 down votes</p>
+            </div>
+          </div>
+
+          <div class="metadata small-text">
+            <p>submitted on 01 Feb 2011</p>
+            <p><strong>200 comments   sort by</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-save">
+        <input type="text" class="sidebar-search"/>
+        <button class="save-button">Save</button>
+      </div>
+
+      <div class="thread-comments">
+        <!-- Comment #1 -->
+        <div class="comment">
+          <!-- Arrows on the left -->
+          <div class="comment-vote-container">
+            <!-- Up arrow toggle c1 -->
+            <input type="checkbox" id="arrow-up-c1" class="arrow-toggle" hidden />
+            <label for="arrow-up-c1" class="arrow arrow-up"></label>
+
+            <!-- Down arrow toggle c1 -->
+            <input type="checkbox" id="arrow-down-c1" class="arrow-toggle" hidden />
+            <label for="arrow-down-c1" class="arrow arrow-down"></label>
+          </div>
+
+          <!-- Text on the right -->
+          <div class="comment-text">
+            <p class="tagline">
+              <a href="#" class="username">UserNumber42</a> 
+              <span class="points">(47 points)</span> 
+              <span class="time">21 hours ago</span>
+            </p>
+            <div class="body">
+              Wow, the first Reddit redesign I’ve seen that doesn’t suck, and I’ve been on this site
+              for 4 years now (different accounts). Very functional. With wide screen monitors this
+              could be very cool.
+              <br /><br />
+              Only suggestion is to have lower the width of the scores column for each post and 
+              the subreddit side bar so there is more room for the content.
+            </div>
+            <div class="footer-links">
+              <a href="#">permalink</a> |
+              <a href="#">report</a> |
+              <a href="#">reply</a>
+            </div>
+
+            <!-- Child comments of UserNumber42 -->
+            <div class="child-comments">
+              <!-- Comment #1.1 -->
+              <div class="comment">
+                <div class="comment-vote-container">
+                  <input type="checkbox" id="arrow-up-c1-1" class="arrow-toggle" hidden />
+                  <label for="arrow-up-c1-1" class="arrow arrow-up"></label>
+
+                  <input type="checkbox" id="arrow-down-c1-1" class="arrow-toggle" hidden />
+                  <label for="arrow-down-c1-1" class="arrow arrow-down"></label>
+                </div>
+
+                <div class="comment-text">
+                  <p class="tagline">
+                    <a href="#" class="username">7hundredand77</a> 
+                    <span class="points">(34 points)</span>
+                    <span class="time">20 hours ago</span>
+                  </p>
+                  <div class="body">
+                    Ha, yeah, since I know many people use widescreen monitors these days, 
+                    this could make use of space a lot more effectively. A sweet spot with 
+                    columns needs to be found where there is enough space to view everything 
+                    perfectly. Since I just quickly put this one together, I didn't really spend 
+                    much time finding that right balance.
+                  </div>
+                  <div class="footer-links">
+                    <a href="#">permalink</a> |
+                    <a href="#">parent</a> |
+                    <a href="#">edit</a> |
+                    <a href="#">delete</a> |
+                    <a href="#">reply</a>
+                  </div>
+
+                  <!-- Child comments of 7hundredand77 -->
+                  <div class="child-comments">
+                    <!-- Comment #1.1.1 -->
+                    <div class="comment">
+                      <div class="comment-vote-container">
+                        <input type="checkbox" id="arrow-up-c1-1-1" class="arrow-toggle" hidden />
+                        <label for="arrow-up-c1-1-1" class="arrow arrow-up"></label>
+
+                        <input type="checkbox" id="arrow-down-c1-1-1" class="arrow-toggle" hidden />
+                        <label for="arrow-down-c1-1-1" class="arrow arrow-down"></label>
+                      </div>
+
+                      <div class="comment-text">
+                        <p class="tagline">
+                          <a href="#" class="username">aliansforparm</a> 
+                          <span class="points">(7 points)</span>
+                          <span class="time">15 hours ago</span>
+                        </p>
+                        <div class="body">
+                          This looks like an email client. Brilliant!
+                          <br /><br />
+                          ...I never realized how much Reddit is like reading email until now.
+                          I guess we could view things in brackets much like forwards from 
+                          the uncle you otherwise don’t communicate with. DAE blah blah = FWD:
+                          FWD: FWD: You gotta read this!
+                        </div>
+                        <div class="footer-links">
+                          <a href="#">permalink</a> |
+                          <a href="#">parent</a> |
+                          <a href="#">report</a> |
+                          <a href="#">reply</a>
+                        </div>
+
+                        <!-- Child comments of aliansforparm -->
+                        <div class="child-comments">
+                          <!-- Comment #1.1.1.1 -->
+                          <div class="comment">
+                            <div class="comment-vote-container">
+                              <input type="checkbox" id="arrow-up-c1-1-1-1" class="arrow-toggle" hidden />
+                              <label for="arrow-up-c1-1-1-1" class="arrow arrow-up"></label>
+
+                              <input type="checkbox" id="arrow-down-c1-1-1-1" class="arrow-toggle" hidden />
+                              <label for="arrow-down-c1-1-1-1" class="arrow arrow-down"></label>
+                            </div>
+
+                            <div class="comment-text">
+                              <p class="tagline">
+                                <a href="#" class="username">Determinantic</a> 
+                                <span class="points">(4 points)</span>
+                                <span class="time">11 hours ago</span>
+                              </p>
+                              <div class="body">
+                                It’s funny that you mention email, because it looks ever-so-vaguely
+                                like Google Wave, except that instead of Menu|Inboxes|Emails, it’s
+                                Subreddits|Topics|Comments.
+                                <br /><br />
+                                Nevertheless, it’s an interesting concept for a redesign - a bit shinier, 
+                                but still maintaining that minimalistic design.
+                              </div>
+                              <div class="footer-links">
+                                <a href="#">permalink</a> |
+                                <a href="#">parent</a> |
+                                <a href="#">report</a> |
+                                <a href="#">reply</a>
+                              </div>
+
+                              <!-- Child comments of Determinantic -->
+                              <div class="child-comments">
+                                <!-- Comment #1.1.1.1.1 -->
+                                <div class="comment">
+                                  <div class="comment-vote-container">
+                                    <input type="checkbox" id="arrow-up-c1-1-1-1-1" class="arrow-toggle" hidden />
+                                    <label for="arrow-up-c1-1-1-1-1" class="arrow arrow-up"></label>
+
+                                    <input type="checkbox" id="arrow-down-c1-1-1-1-1" class="arrow-toggle" hidden />
+                                    <label for="arrow-down-c1-1-1-1-1" class="arrow arrow-down"></label>
+                                  </div>
+
+                                  <div class="comment-text">
+                                    <p class="tagline">
+                                      <a href="#" class="username">voble</a> 
+                                      <span class="points">(3 points)</span>
+                                      <span class="time">10 hours ago</span>
+                                    </p>
+                                    <div class="body">
+                                      Except, let's be honest; I only rarely maximize windows on my 24" monitors, 
+                                      almost never for something like passive entertainment such as Reddit. 
+                                      I personally feel a lot of these "wide-screen optimized" designs miss the 
+                                      point that a user rarely has the sole activity on said widescreen...
+                                      <br /><br />
+                                      (But it is a very nice design!)
+                                    </div>
+                                    <div class="footer-links">
+                                      <a href="#">permalink</a> |
+                                      <a href="#">parent</a> |
+                                      <a href="#">report</a> |
+                                      <a href="#">reply</a>
+                                    </div>
+
+                                    <!-- Child comments of voble -->
+                                    <div class="child-comments">
+                                      <!-- Comment #1.1.1.1.1.1 -->
+                                      <div class="comment">
+                                        <div class="comment-vote-container">
+                                          <input type="checkbox" id="arrow-up-c1-1-1-1-1-1" class="arrow-toggle" hidden />
+                                          <label for="arrow-up-c1-1-1-1-1-1" class="arrow arrow-up"></label>
+                                          
+                                          <input type="checkbox" id="arrow-down-c1-1-1-1-1-1" class="arrow-toggle" hidden />
+                                          <label for="arrow-down-c1-1-1-1-1-1" class="arrow arrow-down"></label>
+                                        </div>
+
+                                        <div class="comment-text">
+                                          <p class="tagline">
+                                            <a href="#" class="username">freshwaike</a> 
+                                            <span class="points">(2 points)</span>
+                                            <span class="time">9 hours ago</span>
+                                          </p>
+                                          <div class="body">
+                                            You could have it that the column width can be changed by (just dragging?).
+                                          </div>
+                                          <div class="footer-links">
+                                            <a href="#">permalink</a> |
+                                            <a href="#">parent</a> |
+                                            <a href="#">report</a> |
+                                            <a href="#">reply</a>
+                                          </div>
+
+                                          <!-- Child comments of freshwaike -->
+                                          <div class="child-comments">
+                                            <!-- Comment #1.1.1.1.1.1.1 -->
+                                            <div class="comment">
+                                              <div class="comment-vote-container">
+                                                <input type="checkbox" id="arrow-up-c1-1-1-1-1-1-1" class="arrow-toggle" hidden />
+                                                <label for="arrow-up-c1-1-1-1-1-1-1" class="arrow arrow-up"></label>
+                                                
+                                                <input type="checkbox" id="arrow-down-c1-1-1-1-1-1-1" class="arrow-toggle" hidden />
+                                                <label for="arrow-down-c1-1-1-1-1-1-1" class="arrow arrow-down"></label>
+                                              </div>
+
+                                              <div class="comment-text">
+                                                <p class="tagline">
+                                                  <a href="#" class="username">gusthebiss</a> 
+                                                  <span class="points">(3 points)</span>
+                                                  <span class="time">11 hours ago</span>
+                                                </p>
+                                                <div class="body">
+                                                  I agree. Additionally, it wouldn't be difficult to provide a button 
+                                                  to toggle from the current layout, to the OP’s design. That would be 
+                                                  a simple JavaScript to change out the page CSS. The dev team could 
+                                                  take it one step farther and cache the user’s UI choice.
+                                                </div>
+                                                <div class="footer-links">
+                                                  <a href="#">permalink</a> |
+                                                  <a href="#">parent</a> |
+                                                  <a href="#">report</a> |
+                                                  <a href="#">reply</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!-- End #1.1.1.1.1.1.1 -->
+                                          </div>
+                                          <!-- End child-comments freshwaike -->
+                                        </div>
+                                      </div>
+                                      <!-- End #1.1.1.1.1.1 -->
+                                    </div>
+                                    <!-- End child-comments voble -->
+                                  </div>
+                                </div>
+                                <!-- End #1.1.1.1.1 -->
+                              </div>
+                              <!-- End child-comments Determinantic -->
+                            </div>
+                          </div>
+                          <!-- End #1.1.1.1 -->
+                        </div>
+                        <!-- End child-comments aliansforparm -->
+                      </div>
+                      <!-- End #1.1.1 -->
+                    </div>
+                    <!-- End child-comments 7hundredand77 -->
+                  </div>
+                  <!-- End #1.1 -->
+                </div>
+                <!-- End child-comments UserNumber42 -->
+              </div>
+              <!-- End top-level Comment #1 -->
+
+              <!-- Another top-level comment, not nested -->
+              <div class="comment">
+                <div class="comment-vote-container">
+                  <input type="checkbox" id="arrow-up-c2" class="arrow-toggle" hidden />
+                  <label for="arrow-up-c2" class="arrow arrow-up"></label>
+
+                  <input type="checkbox" id="arrow-down-c2" class="arrow-toggle" hidden />
+                  <label for="arrow-down-c2" class="arrow arrow-down"></label>
+                </div>
+                <div class="comment-text">
+                  <p class="tagline">
+                    <a href="#" class="username">7hundredand77</a>
+                    <span class="points">(7 points)</span>
+                    <span class="time">14 hours ago</span>
+                  </p>
+                  <div class="body">
+                    I am going update the design tonight. There have been a lot of responses and feedback on what needs to be done:
+                    <ul>
+                      <li>Orange icon for new messages</li>
+                      <li>A more Reddit-styled colour theme rather than the white grey</li>
+                      <li>Update column widths</li>
+                      <li>Allow dynamic-sized story lengths</li>
+                    </ul>
+                  </div>
+                  <div class="footer-links">
+                    <a href="#">permalink</a> | <a href="#">report</a> | <a href="#">reply</a>
+                  </div>
+                </div>
+              </div>
+              <!-- end top-level Comment #2 -->
+
+      </div> <!-- end .thread-comments -->
+    </aside>
+  </main>
+</body>
+</html>
