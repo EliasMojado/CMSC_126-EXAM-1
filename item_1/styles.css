@@ -1,0 +1,300 @@
+/* Google Fonts Import - Poppins provides a clean, modern, and readable font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* 
+ * GLOBAL STYLES
+ * Base styling for the entire document
+ */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9; /* Light gray background for better readability */
+  color: #333; /* Dark gray text for better contrast */
+  line-height: 1.6; /* Improved line spacing for readability */
+}
+
+/* 
+ * HEADER STYLES
+ * Main header with university-inspired design
+ */
+header {
+  background: #7B1113;
+  color: #fff;
+  padding: 1.5rem 1rem; 
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px; /* Increased letter spacing for impact */
+  text-transform: uppercase;
+  font-size: 3.5rem; /* Larger font size to match image */
+  line-height: 1;
+  display: inline-block;
+}
+
+/* 
+ * LAYOUT STRUCTURE
+ * Main grid container for articles and sidebar
+ */
+.news-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2:1 ratio for articles to sidebar */
+  gap: 30px;
+  max-width: 800px; /* Limit width for better readability on large screens */
+  margin: 40px auto; /* Center the container */
+  padding: 0 15px; /* Prevent content from touching edges on small screens */
+}
+
+/* 
+ * NEWSFEED SECTION
+ * Layout for news articles
+ */
+.newsfeed {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between articles */
+}
+
+/* 
+ * NEWS CARD STYLES
+ * Individual article cards with hover effects
+ */
+.news-card {
+  background: #fff;
+  border-radius: 8px; /* Rounded corners as specified in instructions */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensure content doesn't leak out */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  position: relative; /* For positioning the bottom border */
+  margin-bottom: 30px; /* Space between cards - same as gap */
+}
+
+/* Last article card specific styling */
+.news-card:last-child {
+  margin-bottom: 0; /* Remove margin from last card */
+}
+
+/* Card hover effects - subtle elevation */
+.news-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* 
+ * RESPONSIVE IMAGES
+ * Ensures images scale properly with container 
+ */
+.news-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for consistent sizing */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;
+  transition: transform 0.5s ease;
+  border-bottom: 3px solid #f3aa2c; /* Yellow line below the image - updated color */
+}
+
+/* Image zoom effect on hover */
+.news-card:hover img {
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* 
+ * NEWS CONTENT STYLES
+ * Text and link styling within news cards
+ */
+.news-content {
+  padding: 25px; /* Comfortable padding around content */
+  border-bottom: 3px solid #7B1113; /* UP Maroon from brandbook */
+}
+
+/* Article titles - bold and prominent as specified */
+.news-content h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4em;
+  font-weight: 700; /* Bold as specified in instructions */
+  margin: 0 0 10px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Date styling - muted color as specified */
+.news-content .date {
+  color: #777; /* Muted gray color as specified in instructions */
+  font-size: 0.85em;
+  margin-bottom: 12px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+/* Paragraph text styling */
+.news-content p {
+  margin-bottom: 16px;
+  color: #444;
+  font-size: 1em;
+  line-height: 1.6; /* Improved line spacing for paragraph text */
+}
+
+/* 
+ * LINK STYLING
+ * Consistent link styles with interactive hover effects
+ */
+.news-content a {
+  color: #7B1113; /* UP Maroon from brandbook */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: inline-block;
+  text-transform: uppercase; /* Uppercase for "read more" links */
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+}
+
+/* Link hover effects - changed to UP Yellow from brandbook */
+.news-content a:hover {
+  color: #F3AA2C; /* UP Yellow from brandbook */
+  text-decoration: underline; /* Underline on hover for better accessibility */
+}
+
+/* Focus state for better keyboard navigation accessibility */
+.news-content a:focus {
+  outline: 2px solid #7B1113;
+  outline-offset: 2px;
+}
+
+/* 
+ * SIDEBAR STYLES
+ * Right column with trending topics
+ */
+.sidebar {
+  background: #fff;
+  padding: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Match the article card shadow */
+  border-radius: 8px; /* Rounded corners to match article cards */
+  border-bottom: 3px solid #7B1113; /* UP Maroon from brandbook */
+  align-self: stretch; /* Make sidebar stretch full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+}
+
+/* Sidebar heading */
+.sidebar h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #7B1113; /* UP Maroon from brandbook */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* List styling reset */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* List item styling with separators */
+.sidebar ul li {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Light separator between items */
+  position: relative;
+}
+
+/* Remove bottom border from last item */
+.sidebar ul li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Sidebar link styling */
+.sidebar ul li a {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0;
+  font-weight: 500;
+  position: relative;
+  padding-left: 15px; /* Space for bullet point */
+}
+
+/* Custom bullet point for sidebar links */
+.sidebar ul li a:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7B1113; /* UP Maroon from brandbook */
+}
+
+/* Sidebar link hover state */
+.sidebar ul li a:hover {
+  color: #F3AA2C; /* UP Yellow from brandbook */
+}
+
+/* Focus state for better keyboard navigation */
+.sidebar ul li a:focus {
+  outline: 2px solid #7b1113;
+  outline-offset: 2px;
+}
+
+/* 
+ * RESPONSIVE DESIGN
+ * Media queries for different screen sizes
+ */
+@media (max-width: 600px) {
+  /* Stack the grid layout for small screens */
+  .news-container {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 25px;
+  }
+  
+  /* Adjust sidebar spacing for stacked layout */
+  .sidebar {
+    min-height: auto; /* Reset the height on mobile */
+    margin-top: 0;
+  }
+  
+  /* Reduce header padding for small screens */
+  header {
+    padding: 1.5rem 1rem;
+  }
+  
+  /* Slightly smaller headings on mobile */
+  .news-content h2 {
+    font-size: 1.3em;
+  }
+}
+
+/* Print styles for better printed output */
+@media print {
+  body {
+    background: white;
+    font-size: 12pt;
+  }
+  
+  header {
+    background: white;
+    color: black;
+    padding: 1rem;
+    box-shadow: none;
+  }
+  
+  .news-card, .sidebar {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .news-container {
+    margin: 0;
+  }
+}
