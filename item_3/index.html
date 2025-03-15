@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Cooking Guide</title>
+  <!-- Google Font for modern, legible typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Thinner header with new title -->
+  <header>
+    <div class="header-content">
+      <h1>Best-est Cook Book</h1>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Recipe Selection Cards -->
+    <section class="recipe-selection" id="recipe-selection">
+      <div id="position-1" class="scroll-anchor"></div>
+      <div id="position-2" class="scroll-anchor"></div>
+      <div id="position-3" class="scroll-anchor"></div>
+      <div id="position-4" class="scroll-anchor"></div>
+      <div id="position-5" class="scroll-anchor"></div>
+      
+      <div class="recipe-selection-header">
+        <h2>Choose a Recipe</h2>
+        <div class="recipe-nav-controls">
+          <!-- Navigation arrows for each position state -->
+          <!-- Position 1 controls -->
+          <div class="nav-state" id="nav-pos-1">
+            <span class="recipe-nav-btn recipe-nav-left disabled" aria-label="No previous recipes">&#10094;</span>
+            <a href="#position-2" class="recipe-nav-btn recipe-nav-right" aria-label="Scroll to next recipes">&#10095;</a>
+          </div>
+          
+          <!-- Position 2 controls -->
+          <div class="nav-state" id="nav-pos-2">
+            <a href="#position-1" class="recipe-nav-btn recipe-nav-left" aria-label="Scroll to previous recipes">&#10094;</a>
+            <a href="#position-3" class="recipe-nav-btn recipe-nav-right" aria-label="Scroll to next recipes">&#10095;</a>
+          </div>
+          
+          <!-- Position 3 controls -->
+          <div class="nav-state" id="nav-pos-3">
+            <a href="#position-2" class="recipe-nav-btn recipe-nav-left" aria-label="Scroll to previous recipes">&#10094;</a>
+            <a href="#position-4" class="recipe-nav-btn recipe-nav-right" aria-label="Scroll to next recipes">&#10095;</a>
+          </div>
+          
+          <!-- Position 4 controls -->
+          <div class="nav-state" id="nav-pos-4">
+            <a href="#position-3" class="recipe-nav-btn recipe-nav-left" aria-label="Scroll to previous recipes">&#10094;</a>
+            <a href="#position-5" class="recipe-nav-btn recipe-nav-right" aria-label="Scroll to next recipes">&#10095;</a>
+          </div>
+          
+          <!-- Position 5 controls -->
+          <div class="nav-state" id="nav-pos-5">
+            <a href="#position-4" class="recipe-nav-btn recipe-nav-left" aria-label="Scroll to previous recipes">&#10094;</a>
+            <span class="recipe-nav-btn recipe-nav-right disabled" aria-label="No more recipes">&#10095;</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="recipe-cards-container">
+        <div class="recipe-cards">
+          <!-- Recipe Card 1 - Pork Adobo (updated from Chicken) -->
+          <a href="#recipe-adobo" class="recipe-card" id="card-1">
+            <div class="card-image">
+              <img src="images/adobo_card.jpg" alt="Pork Adobo dish" width="100%" height="auto">
+            </div>
+            <div class="card-content">
+              <h3>Pork Adobo</h3>
+              <p>Classic Filipino dish with soy sauce and vinegar</p>
+            </div>
+          </a>
+
+          <!-- Recipe Card 2 - Spaghetti Carbonara -->
+          <a href="#recipe-carbonara" class="recipe-card" id="card-2">
+            <div class="card-image">
+              <img src="images/carbonara.jpg" alt="Spaghetti Carbonara dish" width="100%" height="auto">
+            </div>
+            <div class="card-content">
+              <h3>Spaghetti Carbonara</h3>
+              <p>Creamy Italian pasta with eggs and bacon</p>
+            </div>
+          </a>
+
+          <!-- Recipe Card 3 - Vegetable Curry -->
+          <a href="#recipe-curry" class="recipe-card" id="card-3">
+            <div class="card-image">
+              <img src="images/veggie-curry.jpg.jpg" alt="Vegetable curry dish" width="100%" height="auto">
+            </div>
+            <div class="card-content">
+              <h3>Vegetable Curry</h3>
+              <p>Flavorful Indian curry with mixed vegetables</p>
+            </div>
+          </a>
+
+          <!-- Recipe Card 4 - Chocolate Cake -->
+          <a href="#recipe-cake" class="recipe-card" id="card-4">
+            <div class="card-image">
+              <img src="images/chocolate-cake.jpg" alt="Chocolate cake" width="100%" height="auto">
+            </div>
+            <div class="card-content">
+              <h3>Chocolate Cake</h3>
+              <p>Rich, moist chocolate cake with frosting</p>
+            </div>
+          </a>
+
+          <!-- Recipe Card 5 - Beef Tacos -->
+          <a href="#recipe-tacos" class="recipe-card" id="card-5">
+            <div class="card-image">
+              <img src="images/beef-tacos.jpg" alt="Beef tacos" width="100%" height="auto">
+            </div>
+            <div class="card-content">
+              <h3>Beef Tacos</h3>
+              <p>Mexican-style beef tacos with fresh toppings</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Position Navigation Controls -->
+      <div class="position-navigation">
+        <a href="#position-1" class="position-dot" aria-label="Go to position 1"></a>
+        <a href="#position-2" class="position-dot" aria-label="Go to position 2"></a>
+        <a href="#position-3" class="position-dot" aria-label="Go to position 3"></a>
+        <a href="#position-4" class="position-dot" aria-label="Go to position 4"></a>
+        <a href="#position-5" class="position-dot" aria-label="Go to position 5"></a>
+      </div>
+    </section>
+
+    <!-- Recipe Carousels Section -->
+    <section class="recipe-carousels">
+      <!-- For anchoring without scrolling -->
+      <span id="adobo-anchor" class="scroll-anchor"></span>
+      <span id="carbonara-anchor" class="scroll-anchor"></span>
+      <span id="curry-anchor" class="scroll-anchor"></span>
+      <span id="cake-anchor" class="scroll-anchor"></span>
+      <span id="tacos-anchor" class="scroll-anchor"></span>
+      
+      <!-- Pork Adobo Recipe (Updated from Chicken) -->
+      <div id="recipe-adobo" class="recipe-details">
+        <h2>Filipino Pork Adobo</h2>
+        <p class="recipe-intro">A classic Filipino dish composed of pork slices cooked in soy sauce, vinegar, and garlic. Considered by some as the pride of Filipino cuisine, this savory and sour dish is definitely a favorite among many around the world. The name "adobo" comes from the Spanish word "adobar" which means "to marinate."</p>
+        
+        <!-- Recipe Steps Carousel -->
+        <div class="recipe-steps-container">
+          <!-- Step 1 (visible by default) -->
+          <section id="adobo-step1" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 1: Prepare the Ingredients</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step1" class="modal-checkbox">
+                <label for="modal-step1">
+                  <img src="images/adobo_ingredients.jpg" alt="Ingredients for Pork Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_ingredients.jpg" alt="Ingredients for Pork Adobo" class="modal-image">
+                  <label for="modal-step1" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>You'll need:</h4>
+                <ul>
+                  <li>2 lbs pork belly</li>
+                  <li>2 tablespoons garlic, crushed</li>
+                  <li>5 dried bay leaves (laurel leaves)</li>
+                  <li>4 tablespoons vinegar</li>
+                  <li>1/2 cup soy sauce (Filipino brands recommended)</li>
+                  <li>1 tablespoon peppercorn</li>
+                  <li>2 cups water</li>
+                  <li>Salt to taste</li>
+                </ul>
+                <p>Optional: 1 teaspoon sugar for a slightly sweeter adobo</p>
+                <div class="tip">
+                  <p>Pork belly is the most common cut for adobo, but you can also use pork shoulder as an alternative. The more garlic you use, the better your adobo will be!</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#recipe-adobo">Back to Overview</a>
+              <a href="#adobo-step2" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 2 - Combine and marinate -->
+          <section id="adobo-step2" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 2: Combine ingredients and marinate</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step2" class="modal-checkbox">
+                <label for="modal-step2">
+                  <img src="images/adobo_marinating.jpg" alt="Marinating pork for Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_marinating.jpg" alt="Marinating pork for Adobo" class="modal-image">
+                  <label for="modal-step2" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Combine the pork belly, soy sauce, and garlic then marinate for at least 1 hour.</p>
+                <p class="muted-text">2 lbs pork belly, 1/2 cup soy sauce, 2 tablespoons garlic</p>
+                <div class="tip">
+                  <p>Marinating longer allows the flavors to penetrate deeper into the meat. Some cooks prefer to marinate overnight for best results.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step1" class="prev-step">Previous Step</a>
+              <a href="#adobo-step3" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 3 - Heat pot and cook -->
+          <section id="adobo-step3" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 3: Heat the pot and cook</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step3" class="modal-checkbox">
+                <label for="modal-step3">
+                  <img src="images/adobo_cooking.jpg" alt="Cooking marinated pork for Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_cooking.jpg" alt="Cooking marinated pork for Adobo" class="modal-image">
+                  <label for="modal-step3" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Heat the pot and put-in the marinated pork belly then cook for a few minutes.</p>
+                <div class="tip">
+                  <p>Medium heat works best for this step. The browning process builds the foundation of flavors.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step2" class="prev-step">Previous Step</a>
+              <a href="#adobo-step4" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 4 - Add marinade -->
+          <section id="adobo-step4" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 4: Add remaining marinade</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step4" class="modal-checkbox">
+                <label for="modal-step4">
+                  <img src="images/adobo_adding_marinade.jpg" alt="Adding marinade to Pork Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_adding_marinade.jpg" alt="Adding marinade to Pork Adobo" class="modal-image">
+                  <label for="modal-step4" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Pour remaining marinade including garlic.</p>
+                <div class="tip">
+                  <p>Make sure to include all the flavorful bits for maximum taste. This marinade will form the base of your sauce.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step3" class="prev-step">Previous Step</a>
+              <a href="#adobo-step5" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 5 - Add water and spices -->
+          <section id="adobo-step5" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 5: Add water and spices</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step5" class="modal-checkbox">
+                <label for="modal-step5">
+                  <img src="images/adobo_simmering.jpg" alt="Simmering Pork Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_simmering.jpg" alt="Simmering Pork Adobo" class="modal-image">
+                  <label for="modal-step5" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Add water, whole pepper corn, and dried bay leaves then bring to a boil. Simmer for 40 minutes to 1 hour.</p>
+                <p class="muted-text">1 tablespoon peppercorn, 2 cups water, 5 dried bay leaves</p>
+                <div class="tip">
+                  <p>The longer and slower you simmer, the more tender your pork will become. Low and slow is the key to a delicious adobo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step4" class="prev-step">Previous Step</a>
+              <a href="#adobo-step6" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 6 - Add vinegar -->
+          <section id="adobo-step6" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 6: Add vinegar</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step6" class="modal-checkbox">
+                <label for="modal-step6">
+                  <img src="images/adobo_adding_vinegar.jpg" alt="Adding vinegar to Pork Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_adding_vinegar.jpg" alt="Adding vinegar to Pork Adobo" class="modal-image">
+                  <label for="modal-step6" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Put-in the vinegar and simmer for 12 to 15 minutes.</p>
+                <p class="muted-text">4 tablespoons vinegar</p>
+                <div class="tip">
+                  <p><strong>Important:</strong> Do not stir immediately after adding the vinegar - this helps preserve its tangy flavor.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step5" class="prev-step">Previous Step</a>
+              <a href="#adobo-step7" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 7 - Add salt -->
+          <section id="adobo-step7" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 7: Season to taste</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-step7" class="modal-checkbox">
+                <label for="modal-step7">
+                  <img src="images/adobo_seasoning.jpg" alt="Seasoning Pork Adobo">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_seasoning.jpg" alt="Seasoning Pork Adobo" class="modal-image">
+                  <label for="modal-step7" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Add salt to taste.</p>
+                <p class="muted-text">Salt to taste</p>
+                <div class="tip">
+                  <p>Taste your adobo before adding salt as the soy sauce already contains sodium. If you prefer a slightly sweet adobo, you can also add 1 teaspoon of sugar at this point.</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step6" class="prev-step">Previous Step</a>
+              <a href="#adobo-final" class="next-step">Final Step</a>
+            </div>
+          </section>
+
+          <!-- Final Step - Serve and enjoy -->
+          <section id="adobo-final" class="recipe-step">
+            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Finally: Serve and enjoy!</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-final" class="modal-checkbox">
+                <label for="modal-final">
+                  <img src="images/adobo_serving.jpg" alt="Serving Pork Adobo with rice">
+                </label>
+                <div class="modal-container">
+                  <img src="images/adobo_serving.jpg" alt="Serving Pork Adobo with rice" class="modal-image">
+                  <label for="modal-final" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Serve hot. Share and enjoy!</p>
+                <div class="tip">
+                  <p>Pork Adobo is traditionally served with steamed white rice or sinangag (garlic fried rice). It tastes even better the next day as the flavors continue to develop!</p>
+                </div>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#adobo-step7" class="prev-step">Previous Step</a>
+              <a href="#recipe-adobo">Back to Overview</a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Carbonara Recipe (Updated with Multiple Steps) -->
+      <div id="recipe-carbonara" class="recipe-details">
+        <h2>Spaghetti Carbonara Recipe</h2>
+        <p class="recipe-intro">Learn how to make authentic Italian carbonara with this simple guide. Carbonara is a classic Roman pasta dish known for its creamy sauce made from eggs, cheese, pepper, and cured pork.</p>
+        
+        <!-- Recipe Steps Carousel -->
+        <div class="recipe-steps-container">
+          <!-- Step 1 - Ingredients -->
+          <section id="carbonara-step1" class="recipe-step">
+            <a href="#carbonara-step1" class="restart-btn" title="Restart recipe">⟳</a>
+            <h3>Step 1: Prepare the Ingredients</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-step1" class="modal-checkbox">
+                <label for="modal-carbonara-step1">
+                  <img src="images/carbonara-ingredients.jpg" alt="Ingredients for Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="images/carbonara-ingredients.jpg" alt="Ingredients for Carbonara" class="modal-image">
+                  <label for="modal-carbonara-step1" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>You'll need:</h4>
+                <ul>
+                  <li>400g spaghetti</li>
+                  <li>200g pancetta or guanciale, diced</li>
+                  <li>4 large eggs</li>
+                  <li>100g Pecorino Romano cheese, grated</li>
+                  <li>50g Parmesan cheese, grated</li>
+                  <li>Freshly ground black pepper</li>
+                  <li>Salt to taste</li>
+                </ul>
+                <div class="tip">
+                  <p>For an authentic carbonara, try to use guanciale (cured pork jowl) instead of pancetta or bacon. Also, traditional carbonara does not include cream!</p>
+                </div>
+                <p class="tip"><strong>Note:</strong> This is a preview of the recipe. Select another recipe to view complete steps.</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#recipe-carbonara">Back to Overview</a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Curry Recipe -->
+      <div id="recipe-curry" class="recipe-details">
+        <h2>Vegetable Curry Recipe</h2>
+        <p class="recipe-intro">Discover how to make a delicious, aromatic vegetable curry that's both healthy and packed with flavor.</p>
+        
+        <!-- First step of curry -->
+        <section id="curry-step1" class="recipe-step" aria-hidden="false">
+          <a href="#curry-step1" class="restart-btn" title="Restart recipe">⟳</a>
+          <h3>Step 1: Gather Ingredients</h3>
+          <div class="recipe-content">
+            <div class="recipe-image">
+              <input type="checkbox" id="modal-curry-step1" class="modal-checkbox">
+              <label for="modal-curry-step1">
+                <img src="images/curry-ingredients.jpg" alt="Ingredients for Vegetable Curry">
+              </label>
+              <div class="modal-container">
+                <img src="images/curry-ingredients.jpg" alt="Ingredients for Vegetable Curry" class="modal-image">
+                <label for="modal-curry-step1" class="modal-close">×</label>
+              </div>
+            </div>
+            <div class="recipe-instructions">
+              <h4>You'll need:</h4>
+              <ul>
+                <li>2 tbsp vegetable oil</li>
+                <li>1 large onion, chopped</li>
+                <li>3 cloves garlic, minced</li>
+                <li>2 tbsp curry powder</li>
+                <li>Mixed vegetables (carrots, potatoes, peas, etc.)</li>
+                <li>1 can coconut milk</li>
+                <li>Salt and pepper to taste</li>
+              </ul>
+              <p class="tip"><strong>Note:</strong> This is a preview of the recipe. Select another recipe to view or continue with this one in a future update.</p>
+            </div>
+          </div>
+          <div class="navigation">
+            <a href="#recipe-curry">Back to Overview</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Chocolate Cake Recipe -->
+      <div id="recipe-cake" class="recipe-details">
+        <h2>Chocolate Cake Recipe</h2>
+        <p class="recipe-intro">Bake a decadent chocolate cake that's perfect for any occasion. This moist, rich cake will be a favorite at parties!</p>
+        
+        <!-- First step of cake -->
+        <section id="cake-step1" class="recipe-step" aria-hidden="false">
+          <a href="#cake-step1" class="restart-btn" title="Restart recipe">⟳</a>
+          <h3>Step 1: Gather Ingredients</h3>
+          <div class="recipe-content">
+            <div class="recipe-image">
+              <input type="checkbox" id="modal-cake-step1" class="modal-checkbox">
+              <label for="modal-cake-step1">
+                <img src="images/cake-ingredients.jpg" alt="Ingredients for Chocolate Cake">
+              </label>
+              <div class="modal-container">
+                <img src="images/cake-ingredients.jpg" alt="Ingredients for Chocolate Cake" class="modal-image">
+                <label for="modal-cake-step1" class="modal-close">×</label>
+              </div>
+            </div>
+            <div class="recipe-instructions">
+              <h4>You'll need:</h4>
+              <ul>
+                <li>2 cups all-purpose flour</li>
+                <li>2 cups sugar</li>
+                <li>3/4 cup unsweetened cocoa powder</li>
+                <li>2 tsp baking soda</li>
+                <li>1 tsp baking powder</li>
+                <li>2 eggs</li>
+                <li>1 cup buttermilk</li>
+                <li>1/2 cup vegetable oil</li>
+                <li>2 tsp vanilla extract</li>
+                <li>1 cup hot coffee</li>
+              </ul>
+              <p class="tip"><strong>Note:</strong> This is a preview of the recipe. Select another recipe to view or continue with this one in a future update.</p>
+            </div>
+          </div>
+          <div class="navigation">
+            <a href="#recipe-cake">Back to Overview</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Tacos Recipe -->
+      <div id="recipe-tacos" class="recipe-details">
+        <h2>Beef Tacos Recipe</h2>
+        <p class="recipe-intro">Make restaurant-quality beef tacos at home with this simple recipe. Perfect for a family dinner or casual entertaining.</p>
+        
+        <!-- First step of tacos -->
+        <section id="tacos-step1" class="recipe-step" aria-hidden="false">
+          <a href="#tacos-step1" class="restart-btn" title="Restart recipe">⟳</a>
+          <h3>Step 1: Gather Ingredients</h3>
+          <div class="recipe-content">
+            <div class="recipe-image">
+              <input type="checkbox" id="modal-tacos-step1" class="modal-checkbox">
+              <label for="modal-tacos-step1">
+                <img src="images/tacos-ingredients.jpg" alt="Ingredients for Beef Tacos">
+              </label>
+              <div class="modal-container">
+                <img src="images/tacos-ingredients.jpg" alt="Ingredients for Beef Tacos" class="modal-image">
+                <label for="modal-tacos-step1" class="modal-close">×</label>
+              </div>
+            </div>
+            <div class="recipe-instructions">
+              <h4>You'll need:</h4>
+              <ul>
+                <li>1 lb ground beef</li>
+                <li>1 packet taco seasoning</li>
+                <li>Taco shells or tortillas</li>
+                <li>Shredded lettuce</li>
+                <li>Diced tomatoes</li>
+                <li>Shredded cheese</li>
+                <li>Sour cream</li>
+                <li>Salsa</li>
+                <li>Avocado or guacamole</li>
+              </ul>
+              <p class="tip"><strong>Note:</strong> This is a preview of the recipe. Select another recipe to view or continue with this one in a future update.</p>
+            </div>
+          </div>
+          <div class="navigation">
+            <a href="#recipe-tacos">Back to Overview</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+
+</body>
+</html>
+
