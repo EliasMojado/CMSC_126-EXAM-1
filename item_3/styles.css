@@ -328,11 +328,13 @@
     position: relative;
     margin-top: 20px;
     overflow: hidden; /* Prevent any content from leaking out */
+    min-height: 650px; /* Ensure container is tall enough for all steps */
+    width: 100%;
   }
   
-  /* Hide ALL steps by default */
+  /* Hide ALL steps by default - JavaScript will control visibility */
   .recipe-step {
-    display: none;
+    display: none; /* Hidden by default, shown via JavaScript */
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -342,53 +344,51 @@
     transition: all 0.3s ease;
   }
   
-  /* ONLY show the targeted step - this is the key rule */
-  .recipe-step:target {
-    display: block !important;
-    opacity: 1 !important;
-    height: auto !important;
-    visibility: visible !important;
-    overflow: visible !important;
-    animation: fadeIn 0.5s ease;
+  /* Focus styles for recipe steps */
+  .recipe-step:focus-within {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transform: scale(1.01);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    margin-bottom: 50px; /* Add extra margin at the bottom of each step */
+    outline: 1px solid #2F3C7E;
+    outline-offset: 2px;
   }
   
-  /* Show ONLY the first step of current recipe when no specific step is targeted */
-  /* This is essential to ensure we start with step 1 */
-  #recipe-adobo:target #adobo-step1:not(:target),
-  #recipe-carbonara:target #carbonara-step1:not(:target),
-  #recipe-curry:target #curry-step1:not(:target),
-  #recipe-cake:target #cake-step1:not(:target),
-  #recipe-tacos:target #tacos-step1:not(:target) {
+  /* Style for the first recipe step - always show when recipe is selected */
+  #recipe-adobo:target #adobo-step1,
+  #recipe-carbonara:target #carbonara-step1,
+  #recipe-curry:target #curry-step1,
+  #recipe-cake:target #cake-step1,
+  #recipe-tacos:target #tacos-step1 {
     display: block;
   }
   
-  /* For the default recipe (Adobo) when no recipe is specifically targeted */
-  #recipe-adobo:not(:target) #adobo-step1:not(:target) {
+  /* By default, show step1 of current recipe when no step is targeted */
+  #adobo-step1:not(:target),
+  #carbonara-step1:not(:target),
+  #curry-step1:not(:target),
+  #cake-step1:not(:target),
+  #tacos-step1:not(:target) {
     display: block;
   }
   
-  /* Hide the first step when ANY other step is targeted */
-  /* This ensures we don't see step 1 AND the targeted step */
-  .recipe-details [id^="adobo-step"]:target ~ #adobo-step1:not(:target),
-  .recipe-details [id="adobo-final"]:target ~ #adobo-step1:not(:target),
-  .recipe-details [id^="carbonara-step"]:target ~ #carbonara-step1:not(:target),
-  .recipe-details [id="carbonara-final"]:target ~ #carbonara-step1:not(:target),
-  .recipe-details [id^="curry-step"]:target ~ #curry-step1:not(:target),
-  .recipe-details [id="curry-final"]:target ~ #curry-step1:not(:target),
-  .recipe-details [id^="cake-step"]:target ~ #cake-step1:not(:target),
-  .recipe-details [id="cake-final"]:target ~ #cake-step1:not(:target),
-  .recipe-details [id^="tacos-step"]:target ~ #tacos-step1:not(:target),
-  .recipe-details [id="tacos-final"]:target ~ #tacos-step1:not(:target) {
-    display: none;
-  }
-  
-  /* Remove any duplicate rules for style for first recipe step */
-  
-  /* ARIA support - Hide steps that should be hidden */
-  .recipe-step[aria-hidden="true"] {
+  /* Hide first step when any other step is targeted */
+  .recipe-details #adobo-step2:target ~ #adobo-step1,
+  .recipe-details #adobo-step3:target ~ #adobo-step1,
+  .recipe-details #adobo-step4:target ~ #adobo-step1,
+  .recipe-details #adobo-step5:target ~ #adobo-step1,
+  .recipe-details #adobo-step6:target ~ #adobo-step1,
+  .recipe-details #adobo-step7:target ~ #adobo-step1,
+  .recipe-details #adobo-final:target ~ #adobo-step1,
+  .recipe-details #carbonara-step2:target ~ #carbonara-step1,
+  .recipe-details #carbonara-step3:target ~ #carbonara-step1,
+  .recipe-details #carbonara-step4:target ~ #carbonara-step1,
+  .recipe-details #carbonara-step5:target ~ #carbonara-step1,
+  .recipe-details #carbonara-final:target ~ #carbonara-step1,
+  .recipe-details #curry-step2:target ~ #curry-step1,
+  .recipe-details #curry-final:target ~ #curry-step1,
+  .recipe-details #cake-step2:target ~ #cake-step1,
+  .recipe-details #cake-final:target ~ #cake-step1,
+  .recipe-details #tacos-step2:target ~ #tacos-step1,
+  .recipe-details #tacos-final:target ~ #tacos-step1 {
     display: none;
   }
   
@@ -490,14 +490,6 @@
     border-bottom: 1px solid #FBEAEB;
   }
   
-  /* Focus styles for recipe steps */
-  .recipe-step:focus-within {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    transform: scale(1.01);
-    outline: 1px solid #2F3C7E;
-    outline-offset: 2px;
-  }
-  
   /* Restart button styling */
   .restart-btn {
     position: absolute;
@@ -523,24 +515,6 @@
     background-color: #1e2a5a;
     transform: rotate(180deg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Style for the first recipe step - always show when recipe is selected */
-  #recipe-adobo:target #adobo-step1,
-  #recipe-carbonara:target #carbonara-step1,
-  #recipe-curry:target #curry-step1,
-  #recipe-cake:target #cake-step1,
-  #recipe-tacos:target #tacos-step1 {
-    display: none;
-  }
-  
-  /* By default, show step1 of current recipe when no step is targeted */
-  #adobo-step1:not(:target),
-  #carbonara-step1:not(:target),
-  #curry-step1:not(:target),
-  #cake-step1:not(:target),
-  #tacos-step1:not(:target) {
-    display: none;
   }
   
   /* Headings in recipe steps */
@@ -610,6 +584,7 @@
   
   /* Unordered list styling in steps */
   .recipe-instructions ul {
+    list-style-type: none;
     list-style-position: inside;
     margin-bottom: 20px;
     padding-left: 5px;
@@ -655,11 +630,22 @@
   
   /* Navigation styling */
   .navigation {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 20px;
+    height: 50px; /* Fixed height for navigation area */
+  }
+  
+  /* Previous button always on left */
+  .navigation .prev-step {
+    grid-column: 1;
+    justify-self: start;
+  }
+  
+  /* Next button always on right */
+  .navigation .next-step {
+    grid-column: 2;
+    justify-self: end;
   }
   
   /* Navigation container focus-within styles */
@@ -876,55 +862,22 @@
     box-shadow: 0 0 0 3px #2F3C7E, 0 5px 15px rgba(0, 0, 0, 0.5);
   }
   
-  /* Fix for blue bar issue - ensure only one step shows at a time */
-  .recipe-steps-container {
-    position: relative;
-    margin-top: 20px;
-    overflow: hidden; /* Prevent any content from leaking out */
+  /* Special styling for step 1 navigation - Next button on right */
+  [id$="step1"] .navigation .next-step {
+    grid-column: 2;
+    justify-self: end;
   }
   
-  /* Ensure only one step is visible at a time - BUT DO NOT USE !important flags here */
-  .recipe-step:not(:target) {
-    display: none;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
-  
-  /* Give higher priority to specific target rules */
-  .recipe-step:target {
-    display: block !important;
-    opacity: 1 !important;
-    height: auto !important;
-    visibility: visible !important;
-    overflow: visible !important;
-  }
-  
-  /* Exception for the first step of a recipe */
-  #recipe-adobo:target #adobo-step1:not(:target),
-  #recipe-carbonara:target #carbonara-step1:not(:target),
-  #recipe-curry:target #curry-step1:not(:target),
-  #recipe-cake:target #cake-step1:not(:target),
-  #recipe-tacos:target #tacos-step1:not(:target),
-  #recipe-adobo:not(:target) #adobo-step1:not(:target) {
-    display: block !important;
-    opacity: 1 !important;
-    height: auto !important;
-    visibility: visible !important;
-    overflow: visible !important;
-  }
-  
-  /* Ensure step specificity for nested step targeting - keeping this for specific targets */
-  #adobo-step1:target, #adobo-step2:target, #adobo-step3:target,
-  #adobo-step4:target, #adobo-step5:target, #adobo-step6:target,
-  #adobo-step7:target, #adobo-final:target,
-  #carbonara-step1:target, #curry-step1:target, 
-  #cake-step1:target, #tacos-step1:target {
-    display: block !important;
-    opacity: 1 !important;
-    height: auto !important;
-    visibility: visible !important;
-    overflow: visible !important;
+  /* Recipe step card styling */
+  .recipe-step {
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Added for positioning restart button */
+    min-height: 600px; /* Fixed height to maintain consistency */
+    width: 100%; /* Fixed width */
   }
   

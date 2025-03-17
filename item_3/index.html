@@ -147,9 +147,9 @@
         <!-- Recipe Steps Carousel -->
         <div class="recipe-steps-container">
           <!-- Step 1 (visible by default) -->
-          <section id="adobo-step1" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 1: Prepare the Ingredients</h3>
+          <section id="adobo-step1" class="recipe-step" aria-labelledby="adobo-step1-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step1-heading">Step 1: Prepare the Ingredients</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step1" class="modal-checkbox">
@@ -180,15 +180,14 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#recipe-adobo">Back to Overview</a>
-              <a href="#adobo-step2" class="next-step">Next Step</a>
+              <a href="#adobo-step2" class="next-step" onclick="event.preventDefault(); showStep('adobo-step2'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 2 - Combine and marinate -->
-          <section id="adobo-step2" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 2: Combine ingredients and marinate</h3>
+          <section id="adobo-step2" class="recipe-step" aria-labelledby="adobo-step2-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step2-heading">Step 2: Combine ingredients and marinate</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step2" class="modal-checkbox">
@@ -210,15 +209,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step1" class="prev-step">Previous Step</a>
-              <a href="#adobo-step3" class="next-step">Next Step</a>
+              <a href="#adobo-step1" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step1'); return false;">Previous Step</a>
+              <a href="#adobo-step3" class="next-step" onclick="event.preventDefault(); showStep('adobo-step3'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 3 - Heat pot and cook -->
-          <section id="adobo-step3" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 3: Heat the pot and cook</h3>
+          <section id="adobo-step3" class="recipe-step" aria-labelledby="adobo-step3-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step3-heading">Step 3: Heat the pot and cook</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step3" class="modal-checkbox">
@@ -239,15 +238,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step2" class="prev-step">Previous Step</a>
-              <a href="#adobo-step4" class="next-step">Next Step</a>
+              <a href="#adobo-step2" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step2'); return false;">Previous Step</a>
+              <a href="#adobo-step4" class="next-step" onclick="event.preventDefault(); showStep('adobo-step4'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 4 - Add marinade -->
-          <section id="adobo-step4" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 4: Add remaining marinade</h3>
+          <section id="adobo-step4" class="recipe-step" aria-labelledby="adobo-step4-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step4-heading">Step 4: Add remaining marinade</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step4" class="modal-checkbox">
@@ -268,15 +267,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step3" class="prev-step">Previous Step</a>
-              <a href="#adobo-step5" class="next-step">Next Step</a>
+              <a href="#adobo-step3" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step3'); return false;">Previous Step</a>
+              <a href="#adobo-step5" class="next-step" onclick="event.preventDefault(); showStep('adobo-step5'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 5 - Add water and spices -->
-          <section id="adobo-step5" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 5: Add water and spices</h3>
+          <section id="adobo-step5" class="recipe-step" aria-labelledby="adobo-step5-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step5-heading">Step 5: Add water and spices</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step5" class="modal-checkbox">
@@ -298,15 +297,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step4" class="prev-step">Previous Step</a>
-              <a href="#adobo-step6" class="next-step">Next Step</a>
+              <a href="#adobo-step4" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step4'); return false;">Previous Step</a>
+              <a href="#adobo-step6" class="next-step" onclick="event.preventDefault(); showStep('adobo-step6'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 6 - Add vinegar -->
-          <section id="adobo-step6" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 6: Add vinegar</h3>
+          <section id="adobo-step6" class="recipe-step" aria-labelledby="adobo-step6-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step6-heading">Step 6: Add vinegar</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step6" class="modal-checkbox">
@@ -328,15 +327,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step5" class="prev-step">Previous Step</a>
-              <a href="#adobo-step7" class="next-step">Next Step</a>
+              <a href="#adobo-step5" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step5'); return false;">Previous Step</a>
+              <a href="#adobo-step7" class="next-step" onclick="event.preventDefault(); showStep('adobo-step7'); return false;">Next Step</a>
             </div>
           </section>
 
           <!-- Step 7 - Add salt -->
-          <section id="adobo-step7" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 7: Season to taste</h3>
+          <section id="adobo-step7" class="recipe-step" aria-labelledby="adobo-step7-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-step7-heading">Step 7: Season to taste</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-step7" class="modal-checkbox">
@@ -358,15 +357,15 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step6" class="prev-step">Previous Step</a>
-              <a href="#adobo-final" class="next-step">Final Step</a>
+              <a href="#adobo-step6" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step6'); return false;">Previous Step</a>
+              <a href="#adobo-final" class="next-step" onclick="event.preventDefault(); showStep('adobo-final'); return false;">Final Step</a>
             </div>
           </section>
 
           <!-- Final Step - Serve and enjoy -->
-          <section id="adobo-final" class="recipe-step">
-            <a href="#adobo-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Finally: Serve and enjoy!</h3>
+          <section id="adobo-final" class="recipe-step" aria-labelledby="adobo-final-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('adobo-step1'); return false;">⟳</a>
+            <h3 id="adobo-final-heading">Finally: Serve and enjoy!</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-final" class="modal-checkbox">
@@ -387,8 +386,7 @@
               </div>
             </div>
             <div class="navigation">
-              <a href="#adobo-step7" class="prev-step">Previous Step</a>
-              <a href="#recipe-adobo">Back to Overview</a>
+              <a href="#adobo-step7" class="prev-step" onclick="event.preventDefault(); showStep('adobo-step7'); return false;">Previous Step</a>
             </div>
           </section>
         </div>
@@ -402,9 +400,9 @@
         <!-- Recipe Steps Carousel -->
         <div class="recipe-steps-container">
           <!-- Step 1 - Ingredients -->
-          <section id="carbonara-step1" class="recipe-step">
-            <a href="#carbonara-step1" class="restart-btn" title="Restart recipe">⟳</a>
-            <h3>Step 1: Prepare the Ingredients</h3>
+          <section id="carbonara-step1" class="recipe-step" aria-labelledby="carbonara-step1-heading" role="region">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-step1-heading">Step 1: Gather Your Ingredients</h3>
             <div class="recipe-content">
               <div class="recipe-image">
                 <input type="checkbox" id="modal-carbonara-step1" class="modal-checkbox">
@@ -437,6 +435,137 @@
               <a href="#recipe-carbonara">Back to Overview</a>
             </div>
           </section>
+
+          <!-- Step 2 - Cook Pasta -->
+          <section id="carbonara-step2" class="recipe-step" aria-labelledby="carbonara-step2-heading" role="region" aria-hidden="true">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-step2-heading">Step 2: Cook the Pasta</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-step2" class="modal-checkbox">
+                <label for="modal-carbonara-step2">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=cooking-pasta.jpg" alt="Cooking pasta for Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=cooking-pasta.jpg" alt="Cooking pasta for Carbonara" class="modal-image">
+                  <label for="modal-carbonara-step2" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Cook the pasta according to package instructions. Reserve 1 cup of pasta water before draining.</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#carbonara-step1" class="prev-step">Previous Step</a>
+              <a href="#carbonara-step3" class="next-step" onclick="event.preventDefault(); showStep('carbonara-step2'); return false;">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 3 - Cook Pancetta -->
+          <section id="carbonara-step3" class="recipe-step" aria-labelledby="carbonara-step3-heading" role="region" aria-hidden="true">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-step3-heading">Step 3: Cook the Pancetta</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-step3" class="modal-checkbox">
+                <label for="modal-carbonara-step3">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=cooking-pancetta.jpg" alt="Cooking pancetta for Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=cooking-pancetta.jpg" alt="Cooking pancetta for Carbonara" class="modal-image">
+                  <label for="modal-carbonara-step3" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Cook the pancetta in a pan over medium heat until crispy.</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#carbonara-step2" class="prev-step">Previous Step</a>
+              <a href="#carbonara-step4" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 4 - Prepare Egg Mixture -->
+          <section id="carbonara-step4" class="recipe-step" aria-labelledby="carbonara-step4-heading" role="region" aria-hidden="true">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-step4-heading">Step 4: Prepare the Egg Mixture</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-step4" class="modal-checkbox">
+                <label for="modal-carbonara-step4">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=egg-mixture.jpg" alt="Egg mixture for Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=egg-mixture.jpg" alt="Egg mixture for Carbonara" class="modal-image">
+                  <label for="modal-carbonara-step4" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Whisk together the eggs, grated cheeses, and a generous amount of freshly ground black pepper.</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#carbonara-step3" class="prev-step">Previous Step</a>
+              <a href="#carbonara-step5" class="next-step">Next Step</a>
+            </div>
+          </section>
+
+          <!-- Step 5 - Combine -->
+          <section id="carbonara-step5" class="recipe-step" aria-labelledby="carbonara-step5-heading" role="region" aria-hidden="true">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-step5-heading">Step 5: Combine Everything</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-step5" class="modal-checkbox">
+                <label for="modal-carbonara-step5">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=combining-carbonara.jpg" alt="Combining ingredients for Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=combining-carbonara.jpg" alt="Combining ingredients for Carbonara" class="modal-image">
+                  <label for="modal-carbonara-step5" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Add the cooked pasta to the pan with the pancetta. Quickly toss to combine.</p>
+                <p>Remove the pan from heat and add the egg mixture. Stir vigorously to create a creamy sauce.</p>
+                <p>Season with salt to taste.</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#carbonara-step4" class="prev-step">Previous Step</a>
+              <a href="#carbonara-final" class="next-step">Final Step</a>
+            </div>
+          </section>
+
+          <!-- Final Step - Serve -->
+          <section id="carbonara-final" class="recipe-step" aria-labelledby="carbonara-final-heading" role="region" aria-hidden="true">
+            <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('carbonara-step1'); return false;">⟳</a>
+            <h3 id="carbonara-final-heading">Finally: Serve and Enjoy!</h3>
+            <div class="recipe-content">
+              <div class="recipe-image">
+                <input type="checkbox" id="modal-carbonara-final" class="modal-checkbox">
+                <label for="modal-carbonara-final">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=serving-carbonara.jpg" alt="Serving Spaghetti Carbonara">
+                </label>
+                <div class="modal-container">
+                  <img src="https://placehold.co/600x400/2F3C7E/FBEAEB?text=serving-carbonara.jpg" alt="Serving Spaghetti Carbonara" class="modal-image">
+                  <label for="modal-carbonara-final" class="modal-close">×</label>
+                </div>
+              </div>
+              <div class="recipe-instructions">
+                <h4>Instructions:</h4>
+                <p>Serve hot and enjoy your delicious Spaghetti Carbonara!</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <a href="#carbonara-step5" class="prev-step">Previous Step</a>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -446,9 +575,9 @@
         <p class="recipe-intro">Discover how to make a delicious, aromatic vegetable curry that's both healthy and packed with flavor.</p>
         
         <!-- First step of curry -->
-        <section id="curry-step1" class="recipe-step" aria-hidden="false">
-          <a href="#curry-step1" class="restart-btn" title="Restart recipe">⟳</a>
-          <h3>Step 1: Gather Ingredients</h3>
+        <section id="curry-step1" class="recipe-step" aria-labelledby="curry-step1-heading" role="region" aria-hidden="false">
+          <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('curry-step1'); return false;">⟳</a>
+          <h3 id="curry-step1-heading">Step 1: Prepare Vegetables</h3>
           <div class="recipe-content">
             <div class="recipe-image">
               <input type="checkbox" id="modal-curry-step1" class="modal-checkbox">
@@ -486,9 +615,9 @@
         <p class="recipe-intro">Bake a decadent chocolate cake that's perfect for any occasion. This moist, rich cake will be a favorite at parties!</p>
         
         <!-- First step of cake -->
-        <section id="cake-step1" class="recipe-step" aria-hidden="false">
-          <a href="#cake-step1" class="restart-btn" title="Restart recipe">⟳</a>
-          <h3>Step 1: Gather Ingredients</h3>
+        <section id="cake-step1" class="recipe-step" aria-labelledby="cake-step1-heading" role="region" aria-hidden="false">
+          <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('cake-step1'); return false;">⟳</a>
+          <h3 id="cake-step1-heading">Step 1: Prepare the Batter</h3>
           <div class="recipe-content">
             <div class="recipe-image">
               <input type="checkbox" id="modal-cake-step1" class="modal-checkbox">
@@ -529,9 +658,9 @@
         <p class="recipe-intro">Make restaurant-quality beef tacos at home with this simple recipe. Perfect for a family dinner or casual entertaining.</p>
         
         <!-- First step of tacos -->
-        <section id="tacos-step1" class="recipe-step" aria-hidden="false">
-          <a href="#tacos-step1" class="restart-btn" title="Restart recipe">⟳</a>
-          <h3>Step 1: Gather Ingredients</h3>
+        <section id="tacos-step1" class="recipe-step" aria-labelledby="tacos-step1-heading" role="region" aria-hidden="false">
+          <a href="#" class="restart-btn" title="Restart recipe" aria-label="Restart recipe" onclick="showStep('tacos-step1'); return false;">⟳</a>
+          <h3 id="tacos-step1-heading">Step 1: Prepare the Beef</h3>
           <div class="recipe-content">
             <div class="recipe-image">
               <input type="checkbox" id="modal-tacos-step1" class="modal-checkbox">
@@ -567,7 +696,211 @@
     </section>
   </main>
 
+  <footer>
+    © 2023 Best-est Cook Book - All recipes are for educational purposes only.
+  </footer>
 
+  <!-- JavaScript for recipe navigation -->
+  <script>
+    // Hide all recipe steps
+    function hideAllSteps() {
+      const steps = document.querySelectorAll('.recipe-step');
+      steps.forEach(step => {
+        step.style.display = 'none';
+        step.setAttribute('aria-hidden', 'true');
+      });
+    }
+    
+    // Show a specific step
+    function showStep(stepId) {
+      hideAllSteps();
+      const step = document.getElementById(stepId);
+      if (step) {
+        step.style.display = 'block';
+        step.setAttribute('aria-hidden', 'false');
+      }
+    }
+    
+    // Handle recipe navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to fix all step 1 navigation bars
+      function updateFirstStepNavigation() {
+        const firstSteps = document.querySelectorAll('[id$="step1"]');
+        firstSteps.forEach(step => {
+          const nav = step.querySelector('.navigation');
+          if (nav) {
+            // Clear navigation
+            nav.innerHTML = '';
+            
+            // Find the corresponding recipe and next step
+            const recipeId = step.id.split('-step1')[0];
+            const nextStepId = recipeId + '-step2';
+            
+            // Create invisible previous button placeholder
+            const prevPlaceholder = document.createElement('span');
+            prevPlaceholder.className = 'prev-step';
+            prevPlaceholder.style.visibility = 'hidden';
+            nav.appendChild(prevPlaceholder);
+            
+            // Create next button
+            const nextLink = document.createElement('a');
+            nextLink.href = '#' + nextStepId;
+            nextLink.className = 'next-step';
+            nextLink.textContent = 'Next Step';
+            nextLink.onclick = function(e) {
+              e.preventDefault();
+              showStep(nextStepId);
+              return false;
+            };
+            nav.appendChild(nextLink);
+          }
+        });
+      }
+      
+      // Fix all step 1 navigation on page load
+      updateFirstStepNavigation();
+      
+      // Set up recipe card click handlers
+      const recipeCards = document.querySelectorAll('.recipe-card');
+      recipeCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          const recipeId = this.getAttribute('href').substring(1);
+          
+          // Hide all recipe details
+          document.querySelectorAll('.recipe-details').forEach(detail => {
+            detail.style.display = 'none';
+          });
+          
+          // Show the selected recipe
+          const selectedRecipe = document.getElementById(recipeId);
+          if (selectedRecipe) {
+            selectedRecipe.style.display = 'block';
+            
+            // Show the first step of the selected recipe
+            const firstStep = selectedRecipe.querySelector('.recipe-step');
+            if (firstStep) {
+              hideAllSteps();
+              firstStep.style.display = 'block';
+              firstStep.setAttribute('aria-hidden', 'false');
+              
+              // Fix navigation for this first step
+              const nav = firstStep.querySelector('.navigation');
+              if (nav) {
+                // Clear navigation
+                nav.innerHTML = '';
+                
+                // Find the next step
+                const nextStepElement = firstStep.nextElementSibling;
+                if (nextStepElement) {
+                  const nextStepId = nextStepElement.id;
+                  
+                  // Create invisible previous button placeholder
+                  const prevPlaceholder = document.createElement('span');
+                  prevPlaceholder.className = 'prev-step';
+                  prevPlaceholder.style.visibility = 'hidden';
+                  nav.appendChild(prevPlaceholder);
+                  
+                  // Create next button
+                  const nextLink = document.createElement('a');
+                  nextLink.href = '#' + nextStepId;
+                  nextLink.className = 'next-step';
+                  nextLink.textContent = 'Next Step';
+                  nextLink.onclick = function(e) {
+                    e.preventDefault();
+                    showStep(nextStepId);
+                    return false;
+                  };
+                  nav.appendChild(nextLink);
+                }
+              }
+            }
+          }
+        });
+      });
+      
+      // Set up next/prev step navigation
+      const navLinks = document.querySelectorAll('.next-step, .prev-step');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          showStep(targetId);
+        });
+      });
+      
+      // Initialize - show first recipe and its first step
+      const firstRecipe = document.querySelector('.recipe-details');
+      if (firstRecipe) {
+        firstRecipe.style.display = 'block';
+        const firstStep = firstRecipe.querySelector('.recipe-step');
+        if (firstStep) {
+          firstStep.style.display = 'block';
+          firstStep.setAttribute('aria-hidden', 'false');
+        }
+      }
+    });
+    
+    // Handle URL hash changes
+    window.addEventListener('hashchange', function() {
+      const hash = window.location.hash;
+      if (hash.includes('recipe-')) {
+        // Recipe selection
+        document.querySelectorAll('.recipe-details').forEach(detail => {
+          detail.style.display = 'none';
+        });
+        
+        const selectedRecipe = document.querySelector(hash);
+        if (selectedRecipe) {
+          selectedRecipe.style.display = 'block';
+          
+          // Show first step
+          const firstStep = selectedRecipe.querySelector('.recipe-step');
+          if (firstStep) {
+            hideAllSteps();
+            firstStep.style.display = 'block';
+            firstStep.setAttribute('aria-hidden', 'false');
+            
+            // Fix navigation for first step
+            if (firstStep.id.endsWith('step1')) {
+              const nav = firstStep.querySelector('.navigation');
+              if (nav) {
+                // Clear navigation
+                nav.innerHTML = '';
+                
+                // Find the next step
+                const nextStepElement = firstStep.nextElementSibling;
+                if (nextStepElement) {
+                  const nextStepId = nextStepElement.id;
+                  
+                  // Create invisible previous button placeholder
+                  const prevPlaceholder = document.createElement('span');
+                  prevPlaceholder.className = 'prev-step';
+                  prevPlaceholder.style.visibility = 'hidden';
+                  nav.appendChild(prevPlaceholder);
+                  
+                  // Create next button
+                  const nextLink = document.createElement('a');
+                  nextLink.href = '#' + nextStepId;
+                  nextLink.className = 'next-step';
+                  nextLink.textContent = 'Next Step';
+                  nextLink.onclick = function(e) {
+                    e.preventDefault();
+                    showStep(nextStepId);
+                    return false;
+                  };
+                  nav.appendChild(nextLink);
+                }
+              }
+            }
+          }
+        }
+      } else if (hash.includes('step')) {
+        // Step navigation
+        const stepId = hash.substring(1);
+        showStep(stepId);
+      }
+    });
+  </script>
 </body>
 </html>
 
