@@ -1,7 +1,17 @@
 /********************************************
+ * CSS VARIABLES FOR GRID COLUMNS
+ ********************************************/
+ :root {
+  /* Default column widths: 15% / 40% / 45% sum to 100% */
+  --leftCol: 15%;
+  --middleCol: 40%;
+  --rightCol: 45%;
+}
+
+/********************************************
  * RESET & BASICS
  ********************************************/
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,13 +27,13 @@ body {
  * TOP BAR
  ********************************************/
 .topbar {
+  width: 100%;
   display: flex;
   align-items: center;
   height: 50px;
   background: #DCEDFE;
   padding: 5px 25px;
   border-bottom: 1px solid black;
-  box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, 0.5);
 }
 
 .logo-img {
@@ -33,34 +43,84 @@ body {
 }
 
 /********************************************
- * SEARCH BAR SECTION
+ * LAYOUT CONTAINER (GRID)
  ********************************************/
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  overflow: visible;
-  background-color: #EFF1F3;
-  padding: 10px 20px;
-  box-shadow: inset 0 -5px 10px -5px rgba(0, 0, 0, 0.5);
+.container {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+
+  /* Use the CSS variables for the columns */
+  grid-template-columns: var(--leftCol) var(--middleCol) var(--rightCol);
+  grid-template-rows: auto 1fr;
+  /* First row: empty-left | search-bar | empty-right
+     Second row: sidebar-left | main-content | sidebar-right */
+  grid-template-areas:
+    "empty-left search-bar empty-right"
+    "sidebar-left main-content sidebar-right";
+
+  border-top: 1px solid black;
 }
 
+/********************************************
+ * FIRST ROW
+ ********************************************/
+.empty-left {
+  grid-area: empty-left;
+}
+
+.search-bar {
+  grid-area: search-bar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: visible;
+  border-bottom: 1px solid black;
+}
+
+.empty-right {
+  grid-area: empty-right;
+}
+
+/* Shared styling for row 1 */
+.empty-left,
+.search-bar,
+.empty-right {
+  background-color: #EFF1F3;
+
+  -moz-box-shadow:
+    inset 0 -10px 10px -10px #525252,
+    0 -5px 10px -5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow:
+    inset 0 -10px 10px -10px #525252,
+    0 -5px 10px -5px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 -10px 10px -10px #525252,
+    0 -5px 10px -5px rgba(0, 0, 0, 0.5);
+
+  padding: 5px 20px;
+}
+
+/********************************************
+ * SEARCH-BOX, TABS, NOTIFICATIONS
+ ********************************************/
 .search-box {
   display: flex;
   align-items: center;
+  margin-left: 10vw;
+  margin-right: 2vw;
 }
 
 .tabs {
-  margin-left: 15%;
-  margin-right: 5vw;
   display: flex;
   gap: 10px;
+  position: relative;
+  top: 6px;
 }
 
 .tab {
-  position: relative;
-  top: 12px;
+  white-space: nowrap;
   padding: 10px;
   background-color: #FDFDFB;
   font-weight: bold;
@@ -73,6 +133,10 @@ body {
   border-radius: 5px 5px 0 0;
   text-align: center;
   font-size: small;
+}
+
+.inactive {
+  box-shadow: inset 0 -10px 10px -10px #525252;
 }
 
 .search-input {
@@ -95,16 +159,15 @@ body {
 
 .notifications {
   position: relative;
-  padding-left: 2vw;
-  padding-right: 5vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 10px;
 }
 
 .upper-box {
   position: absolute;
-  top: -45px;
+  top: -40px;
+  white-space: nowrap;
   border: 1px solid black;
   border-bottom: none;
   background: #EFF1F3;
@@ -121,12 +184,15 @@ body {
   color: #333;
 }
 
-/* Colors for text, if needed */
+/********************************************
+ * COLORS FOR TEXT
+ ********************************************/
 .blue-text {
   color: blue;
   font-weight: bold;
   text-decoration: none;
 }
+
 .red-text {
   color: red;
   font-weight: bold;
@@ -134,25 +200,17 @@ body {
 }
 
 /********************************************
- * LAYOUT CONTAINER (GRID)
+ * LEFT SIDEBAR (second row, col 1)
  ********************************************/
-.container {
-  display: grid;
-  width: 100%;
-  height: 100vh;
-  grid-template-columns: 15% 40% 45%;
-  grid-template-areas: 
-    "sidebar-left main-content sidebar-right";
-  border-top: 1px solid black;
+.toggle-sidebar-label {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
 }
 
-/********************************************
- * LEFT SIDEBAR
- ********************************************/
 .sidebar-left {
-  /* A set width or max-width so text can wrap inside it. */
   grid-area: sidebar-left;
-  max-width: 180px;
+  width: 100%;
   background: #EEF8FE;
   padding: 10px;
   border: 1px solid #bababa;
@@ -164,16 +222,20 @@ body {
 }
 
 .sidebar-left ul li a {
-  display: block;            /* ensure each link is a block so it can wrap */
+  display: block;
   color: black;
   font-weight: bold;
   font-size: small;
   text-decoration: none;
   padding: 10px;
   gap: 4px;
-  white-space: normal;       /* allow multi-line wrapping */
+  white-space: normal;
   word-wrap: break-word;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
+}
+
+.label-text {
+  padding-left: 10px;
 }
 
 .sidebar-left ul li a img.icon {
@@ -203,44 +265,60 @@ body {
 }
 
 /********************************************
- * MAIN CONTENT (Posts)
+ * MAIN CONTENT (second row, col 2)
  ********************************************/
 .main-content {
   grid-area: main-content;
   flex: 1;
   background: #fff;
   border: 1px solid #ddd;
+  border-top: none;
   padding: 10px;
   counter-reset: postCounter;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .post {
   display: flex;
   align-items: center;
   padding-top: 10px;
-  border-bottom: 1px solid #c4c4c4;
   padding-bottom: 10px;
+  border-bottom: 1px solid #c4c4c4;
   counter-increment: postCounter;
 }
+
 .post:hover {
   background-color: #FEF3F0;
 }
+
 .post-index {
   width: 30px;
   text-align: right;
   margin-right: 8px;
+  margin-left: 8px;
 }
+
 .post-index::before {
   content: counter(postCounter);
   color: #BEBEBE;
   font-size: 1.4rem;
 }
+
 .vote-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 10px;
 }
+
+.post-index,
+.vote-container {
+  flex-shrink: 0;       /* Don’t allow them to shrink */
+  width: auto;          /* Or set a fixed width, e.g., width: 40px; */
+  margin-right: 8px;
+}
+
 /* ARROWS */
 .arrow {
   cursor: pointer;
@@ -248,22 +326,27 @@ body {
   margin: 2px 0;
   display: inline-block;
 }
+
 .arrow-up::before {
   content: "▲";
   color: #BEBEBE;
   font-size: 1.2rem;
 }
+
 .arrow-down::before {
   content: "▼";
   color: #BEBEBE;
   font-size: 1.2rem;
 }
+
 .arrow-toggle:checked + .arrow-up::before {
   color: orange;
 }
+
 .arrow-toggle:checked + .arrow-down::before {
   color: orange;
 }
+
 .score {
   font-size: 1.4rem;
   font-weight: bold;
@@ -271,45 +354,55 @@ body {
   text-align: center;
   margin: 2px 0;
 }
+
 .post-details {
   padding-left: 20px;
 }
+
 .post-image {
   padding-left: 20px;
   margin-top: 10px;
   text-align: center;
 }
+
 .post-image img {
-  max-width: 100px;
-  height: auto;
+  height: 80px;
+  max-width: auto;
 }
+
 .post-details a {
   color: #0079d3;
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
 }
+
 .post-details p {
-  padding-left: 5px;
   font-size: 0.875rem;
-  color: #555;
+  color: #6f6f6f;
   margin: 5px 0;
 }
+
+.comment-item {
+  margin-right: 0.75em;
+}
+
 .username {
-  color: #ff8b60;
+  color: #5A74B9;
   font-weight: bold;
 }
+
 .subreddit {
   color: #0079d3;
 }
 
 /********************************************
- * RIGHT SIDEBAR
+ * RIGHT SIDEBAR (second row, col 3)
  ********************************************/
 .sidebar-right {
   grid-area: sidebar-right;
   flex: 0 0 300px;
-  background: #fff;
+  background: #F5F5F5;
   border: 1px solid #ddd;
   padding: 10px;
 }
@@ -320,47 +413,65 @@ body {
   padding: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
+
 .info {
   display: flex;
   padding-top: 3vh;
   justify-content: space-between;
 }
+
 .stats {
   display: flex;
+  align-items: center;
   gap: 10px;
+  padding: 10px;
   background-color: white;
 }
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .votes {
   display: flex;
   flex-direction: column;
 }
+
 .up-votes {
   color: blue;
 }
+
 .down-votes {
   color: red;
 }
+
 .small-text {
   font-size: 0.8rem;
   color: #aaaaaa;
 }
+
 .big-number {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 .thread-header h3 {
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
-/* SIDEBAR SEARCH & SAVE */
+/********************************************
+ * SIDEBAR SEARCH & SAVE
+ ********************************************/
 .search-save {
   display: flex;
   align-items: center;
   padding-top: 20px;
   gap: 15px;
-  margin-bottom: 20px;
 }
+
 .sidebar-search {
   flex: 1;
   padding: 12px;
@@ -368,6 +479,7 @@ body {
   border: 1px solid #000000;
   border-radius: 6px;
 }
+
 .save-button {
   padding: 8px 15px;
   font-size: 1.2rem;
@@ -378,64 +490,83 @@ body {
   cursor: pointer;
   text-align: center;
 }
-.save-button:hover {
-  background-color: #bbb;
+
+.formatting {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5vw;
+  padding: 10px;
+  color: blue;
 }
 
-/* THREAD COMMENTS */
+/********************************************
+ * THREAD COMMENTS
+ ********************************************/
 .thread-comments {
   font-family: Arial, sans-serif;
   font-size: 0.875rem;
   color: #333;
 }
+
 .comment {
   display: flex;
   align-items: flex-start;
 }
+
 .comment-content {
   display: flex;
   align-items: flex-start;
   gap: 10px;
 }
+
 .comment-vote-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 10px;
 }
+
 .tagline {
   margin-bottom: 0.25rem;
   color: #888;
   font-size: 0.8rem;
 }
+
 .body {
   margin-bottom: 0.25rem;
 }
+
 .footer-links {
   font-size: 0.75rem;
   color: #999;
   margin-bottom: 0.5rem;
 }
+
 .footer-links a {
   color: #999;
   text-decoration: none;
 }
+
 .footer-links a:hover {
   text-decoration: underline;
 }
+
 .child-comments {
   margin-left: 20px;
   border-left: 1px dotted #ccc;
   padding-left: 10px;
 }
 
-/* BOTTOM NAVIGATION */
+/********************************************
+ * BOTTOM NAVIGATION
+ ********************************************/
 .navigation-buttons {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
   gap: 10px;
 }
+
 .navigation-buttons button {
   padding: 8px 15px;
   font-size: 1rem;
@@ -447,83 +578,173 @@ body {
 }
 
 /********************************************
- * MEDIA QUERIES
+ * RESPONSIVE MEDIA QUERIES
  ********************************************/
- @media (max-width: 800px) {
-  /* Hide left sidebar on small screens */
+@media (max-width: 1000px) {
+  .search-box {
+    margin-left: 5px;
+  }
+
+  /* close the sidebar  */
   .sidebar-left {
     display: none;
   }
-  
-  /* Reconfigure the container for 2 rows, one column */
+
+  .container {
+    grid-template-columns: 0% 50% 50%;
+  }
+
+  /* start the search bar grid to 1 */
+  .search-bar {
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Hide left sidebar, placeholders */
+  .empty-left,
+  .empty-right,
+  .sidebar-left {
+    display: none;
+  }
+
+  /* Single column overall: row1=search-bar, row2=main-content, row3=sidebar-right */
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    /* Note: Order is defined by grid-area names */
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-      "sidebar-right"
-      "main-content";
+      "search-bar"
+      "main-content"
+      "sidebar-right";
   }
-  
-  /* Ensure the right sidebar and main content use their grid areas */
-  .sidebar-right {
-    grid-area: sidebar-right;
+
+  .search-bar {
+    grid-area: search-bar;
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* two columns for row 3 items: tabs & search */
+    grid-template-rows: auto auto auto; /* row1 => .upper-box, row2 => notifications, row3 => tabs & search */
+    gap: 10px;
+    padding: 10px;
   }
-  
+
+  /* Row 1: .upper-box alone, spanning both columns */
+  .upper-box {
+    position: static;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border: none;
+    font-size: smaller;
+    grid-column: 1 / span 2; /* entire top row */
+  }
+
+  /* Row 2: notifications below .upper-box, also spanning both columns */
+  .notifications {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    display: flex;
+    flex-wrap: wrap; /* wrap to new lines if needed */
+    justify-content: flex-start;
+  }
+
+  .notif-box {
+    height: 40px;
+    margin: 0;
+  }
+
+  /* Row 3: left = tabs, right = search-box */
+  .tabs {
+    grid-row: 3;
+    grid-column: 1;
+    margin: 0;
+    position: relative;
+    top: 15px;
+  }
+
+  /* Let the search box fill entire right column */
+  .search-box {
+    grid-row: 3;
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* (Optional) Let the search input expand inside .search-box */
+  .search-input {
+    flex: 1;
+    max-width: 100%;
+    margin-right: 5px;
+  }
+
+  /* main-content => row 2 of the entire layout */
   .main-content {
     grid-area: main-content;
   }
 
-  .search-bar {
-    flex-direction: column; /* Stack the elements vertically */
-    align-items: stretch;
-    padding: 10px; /* Adjust padding as needed */
+  /* sidebar-right => row 3 (last) */
+  .sidebar-right {
+    grid-area: sidebar-right;
   }
 
-   /* Adjust notifications so they don't conflict with the tabs */
-   .notifications {
-    order: 1;
-    justify-content: center;
-    padding-right: 0;
-  }
+  /* Extra: below 500px, stack search box over tabs (optional) */
+  @media (max-width: 600px) {
+    .search-bar {
+      /* We need 4 rows: row1=upper-box, row2=notifications, row3=search, row4=tabs */
+      grid-template-rows: auto auto auto auto;
+    }
 
-  .notifications .upper-box {
-    display: none;
-  }
+    .search-box {
+      grid-row: 3;
+      grid-column: 1 / span 2;
+      justify-content: center;
+      max-width: 90vw;
+    }
 
-  .tabs {
-    order: 3;
-    width: 100%;
-    justify-content: center; /* center the tabs horizontally */
-    margin-bottom: 10px;
-    overflow-x: auto;
-    margin-left: 0;
-    position: relative;
-    top: 3vh
+    .tabs {
+      grid-row: 4;
+      grid-column: 1 / span 2;
+    }
   }
-
-  .search-box {
-    order: 2;
-    display: flex;
-    width: 100%;
-  }
-
-  .search-box .search-input {
-    width: 100%;
-    order: 1;
-    margin-right: 0;
-  }
-
-  .search-box .search-button {
-    order: 2;
-    margin-left: 0;
-  }
-
-  .notifications {
-    order: 2;
-    width: 100%;
-    margin: 5px 0;
-  }
-  
 }
 
+/********************************************
+ * CSS TOGGLE SIDEBAR (NO JS) + DYNAMIC COLUMNS
+ ********************************************/
+/* Hide text & boxes in sidebar */
+#toggle-sidebar-checkbox:checked ~ .container .sidebar-left .label-text,
+#toggle-sidebar-checkbox:checked ~ .container .sidebar-left .sidebar-boxes {
+  display: none;
+}
+
+/* Change arrow from << to >> */
+.toggle-sidebar-label::after {
+  content: "‹‹";
+}
+#toggle-sidebar-checkbox:checked ~ .container .sidebar-left .toggle-sidebar-label::after {
+  content: "››";
+}
+
+#toggle-sidebar-checkbox:checked ~ .container .main-content {
+  margin-left: 50px;
+}
+
+#toggle-sidebar-checkbox:checked ~ .container .tabs {
+  margin-left: 50px;
+}
+
+/* (Optional) Narrow the .sidebar-left for a collapsed look */
+#toggle-sidebar-checkbox:checked ~ .container .sidebar-left {
+  width: 50px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+/* (IMPORTANT) Adjust the grid columns so the main content (middle col)
+   and right col can fill the freed space. For example, 0% / 50% / 50%. */
+#toggle-sidebar-checkbox:checked ~ .container {
+  --leftCol: 0%;
+  --middleCol: 50%;
+  --rightCol: 50%;
+}
